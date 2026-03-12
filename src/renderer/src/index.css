@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: #010a13; }
+::-webkit-scrollbar-thumb  { background: #1e3a5c; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2a5298; }
+
+/* ── Reusable components via @layer ─────────────────────────────────────────── */
+@layer components {
+
+  .hex-input {
+    @apply w-full bg-hex-bg border border-hex-border rounded px-3 py-1.5
+           text-sm text-hex-text placeholder-hex-text-dim
+           focus:outline-none focus:border-hex-gold transition-colors;
+  }
+
+  select.hex-input option {
+    background-color: #0a1428;
+    color: #a9b4c8;
+  }
+
+  .btn-primary {
+    @apply py-2 bg-hex-gold text-hex-bg text-sm font-bold rounded
+           hover:bg-hex-gold-lt transition-colors;
+  }
+
+  .btn-ghost {
+    @apply py-2 border border-hex-border rounded text-sm text-hex-text-dim
+           hover:border-hex-gold hover:text-hex-gold transition-colors;
+  }
+}
+
+/* ── Global resets ──────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+body { margin: 0; overflow: hidden; }
+
+/* ── Rank badge glow for top tiers ─────────────────────────────────────────── */
+@keyframes challenger-pulse {
+  0%, 100% { text-shadow: 0 0 6px #f4c874aa; }
+  50%       { text-shadow: 0 0 14px #f4c874; }
+}
